@@ -22,7 +22,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
-  padding-top: 80px; /* Altura do navbar */
+  padding-top: 50px; /* Altura do navbar */
 }
 
 /* Container */
