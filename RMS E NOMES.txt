@@ -1,0 +1,8 @@
+RM NOMES E TURMA COMO PEDIDO NO PDF:
+
+• Entrega de um txt. no .zip de cada entrega: Esse txt deve ter o RM, nome do aluno e turma de cada
+integrante.
+
+NOME: Gustavo Mendes da Rosa RM: 565807  Turma: 1TDSPH  
+
+NOME:Luiz Gustavo Albuquerque Barrios Guedes RM: 565843 Turma: 1TDSPH    
