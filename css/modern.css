@@ -450,6 +450,25 @@ body {
   box-shadow: 0 0 0 2px rgba(19, 84, 122, 0.1);
 }
 
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 2px rgba(211,47,47,0.1);
+}
+
+.form-success-message {
+  color: #388e3c;
+  background: #e8f5e9;
+  border: 1px solid #388e3c;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  animation: fadeIn 0.5s;
+}
+
 /* FAQ Section */
 .faq-grid {
   display: grid;
@@ -881,4 +900,30 @@ body {
 .mt-1 { margin-top: 0.5rem; }
 .mt-2 { margin-top: 1rem; }
 .mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; } 
+.mt-4 { margin-top: 2rem; }
+
+.error-message {
+  color: #d32f2f;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+  min-height: 1.2em;
+}
+
+.back-to-top {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto 0 auto;
+  padding: 0.7rem 2rem;
+  font-size: 1.1rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.back-to-top:hover, .back-to-top:focus {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  outline: 2px solid var(--secondary-color);
+} 
