@@ -216,4 +216,97 @@ function updateCopyrightYear() {
 document.addEventListener('DOMContentLoaded', () => {
     updateCopyrightYear();
     loadGoogleMapsScript();
+    // Voltar ao topo
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
+
+// Validação customizada do formulário de contato
+function validateEmail(email) {
+    // Regex simples para validar email
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    if (form) {
+        // Adiciona aria-live nas mensagens de erro
+        document.querySelectorAll('.error-message').forEach(el => el.setAttribute('aria-live', 'polite'));
+
+        // Mensagem de sucesso
+        let successMessage = document.createElement('div');
+        successMessage.className = 'form-success-message';
+        successMessage.style.display = 'none';
+        form.parentNode.insertBefore(successMessage, form);
+
+        form.addEventListener('submit', function(e) {
+            let valid = true;
+
+            // Limpa mensagens anteriores e feedback visual
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
+            successMessage.style.display = 'none';
+
+            // Nome
+            const name = document.getElementById('name');
+            if (!name.value.trim()) {
+                document.getElementById('error-name').textContent = 'Por favor, preencha seu nome.';
+                name.classList.add('error');
+                valid = false;
+            }
+
+            // Email
+            const email = document.getElementById('email');
+            if (!email.value.trim()) {
+                document.getElementById('error-email').textContent = 'Por favor, preencha seu email.';
+                email.classList.add('error');
+                valid = false;
+            } else if (!validateEmail(email.value.trim())) {
+                document.getElementById('error-email').textContent = 'Digite um email válido.';
+                email.classList.add('error');
+                valid = false;
+            }
+
+            // Assunto
+            const subject = document.getElementById('subject');
+            if (!subject.value.trim()) {
+                document.getElementById('error-subject').textContent = 'Por favor, preencha o assunto.';
+                subject.classList.add('error');
+                valid = false;
+            }
+
+            // Mensagem
+            const message = document.getElementById('message');
+            if (!message.value.trim()) {
+                document.getElementById('error-message').textContent = 'Por favor, escreva sua mensagem.';
+                message.classList.add('error');
+                valid = false;
+            }
+
+            if (!valid) {
+                e.preventDefault();
+            } else {
+                e.preventDefault();
+                form.reset();
+                successMessage.textContent = 'Mensagem enviada com sucesso!';
+                successMessage.style.display = 'block';
+            }
+        });
+
+        // Remover feedback visual ao digitar
+        form.querySelectorAll('input, textarea').forEach(el => {
+            el.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    this.classList.remove('error');
+                    const errorDiv = document.getElementById('error-' + this.name);
+                    if (errorDiv) errorDiv.textContent = '';
+                }
+            });
+        });
+    }
 }); 
