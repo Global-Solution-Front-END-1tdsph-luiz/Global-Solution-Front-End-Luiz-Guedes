@@ -6,7 +6,7 @@ window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll <= 0) {
-        navbar.classList.remove('scroll-up');
+        navbar.classList.remove('scroll-down', 'scroll-up');
         return;
     }
     
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Validação customizada do formulário de contato
 function validateEmail(email) {
     // Regex simples para validar email
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); //se nao tiver um @ ou . ou espaço no meio, retorna false basicamente. ass Gutavo Mendes da Rosa.
 }
 
 document.addEventListener('DOMContentLoaded', function() {
