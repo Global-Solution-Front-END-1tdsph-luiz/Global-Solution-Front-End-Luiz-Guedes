@@ -504,8 +504,7 @@ body {
 }
 
 .faq-item h3::after {
-  content: '\f107';
-  font-family: 'Font Awesome 6 Free';
+  content: '\25BC';
   font-weight: 900;
   color: var(--primary-color);
   transition: transform 0.3s ease;
