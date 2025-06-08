@@ -14,24 +14,57 @@ O **Guardião Verde** é um sistema dedicado ao monitoramento e combate de incê
 ---
 
 ## 📂 Estrutura de Pastas e Arquivos
-
+## Estrutura do Projeto
 ```
-GuardiãoVerde/
-├── .gitignore          # Arquivo para ignorar pastas e arquivos desnecessários no versionamento
-├── index.html          # Página inicial do projeto
-├── contact.html        # Página de contato
-├── faq.html            # Página de perguntas frequentes
-├── integrantes.html    # Página com informações sobre os integrantes da equipe
+Global-Solution-Front-End-Luiz-Guedes/
+├── assets/
+│   └── fontawesome/
+│       ├── css/
+│       │   └── all.min.css
+│       └── webfonts/
+│           └── [arquivos de fontes]
 ├── css/
-│   └── modern.css      # Estilos CSS personalizados
+│   └── modern.css
+├── images/
+│   ├── burning-tree-silhouettes-against-fiery-sunset-sky-generated-by-ai_188544-39244.avif
+│   ├── firefighter-trying-contain-forest-fire_23-2150880228.avif
+│   ├── kids-having-fun-with-traditional-games_23-2149317183.avif
+│   └── mapa-placeholder.png
 ├── js/
-│   └── modern.js       # Scripts JavaScript do projeto
-├── images/             # Pasta para armazenar imagens
-│   ├── favicon.png     # Ícone do site
-│   └── team/           # Fotos dos integrantes da equipe
-│       ├── member1.jpg
-│       └── member2.jpg
+│   └── modern.js
+├── contact.html
+├── faq.html
+├── index.html
+├── integrantes.html
+└── README.md
 ```
+
+### Descrição dos Diretórios e Arquivos
+
+#### Diretórios Principais
+- `assets/`: Contém recursos estáticos como fontes e ícones
+  - `fontawesome/`: Biblioteca de ícones localizada
+- `css/`: Arquivos de estilo
+- `images/`: Imagens do projeto
+- `js/`: Scripts JavaScript
+
+#### Arquivos HTML
+- `index.html`: Página inicial
+- `contact.html`: Página de contato
+- `faq.html`: Página de perguntas frequentes
+- `integrantes.html`: Página de integrantes do projeto
+
+#### Arquivos de Estilo e Script
+- `css/modern.css`: Estilos principais do projeto
+- `js/modern.js`: Funcionalidades JavaScript
+
+#### Imagens
+- Imagens otimizadas para web
+- Mapa estático como placeholder
+- Imagens ilustrativas do projeto
+
+#### Documentação
+- `README.md`: Documentação do projeto
 
 ---
 
@@ -40,8 +73,7 @@ GuardiãoVerde/
 - **HTML5** - Estruturação das páginas web.
 - **CSS3** - Estilização e design responsivo.
 - **JavaScript** - Funcionalidades interativas.
-- **Font Awesome** - Ícones para melhorar a experiência do usuário.
-- **Google Fonts** - Fontes personalizadas (Montserrat e Open Sans).
+- **Font Awesome** - Ícones e elementos visuais
 - **GitHub** - Versionamento e hospedagem do código.
 
 ---
