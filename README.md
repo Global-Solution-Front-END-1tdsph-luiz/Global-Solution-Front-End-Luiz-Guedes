@@ -16,13 +16,9 @@ O **Guardião Verde** é um sistema dedicado ao monitoramento e combate de incê
 ## 📂 Estrutura de Pastas e Arquivos
 ## Estrutura do Projeto
 ```
-Global-Solution-Front-End-Luiz-Guedes/
-├── assets/
-│   └── fontawesome/
-│       ├── css/
-│       │   └── all.min.css
-│       └── webfonts/
-│           └── [arquivos de fontes]
+Global-Solution-Front-End-Luiz-Guedes/  
+│      
+│           
 ├── css/
 │   └── modern.css
 ├── images/
