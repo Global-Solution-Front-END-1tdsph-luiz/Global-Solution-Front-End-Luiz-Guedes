@@ -6,16 +6,14 @@ window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll <= 0) {
-        navbar.classList.remove('scroll-down', 'scroll-up');
+        navbar.classList.remove('scroll-down');
         return;
     }
     
     if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
-        navbar.classList.remove('scroll-up');
         navbar.classList.add('scroll-down');
     } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
         navbar.classList.remove('scroll-down');
-        navbar.classList.add('scroll-up');
     }
     lastScroll = currentScroll;
 });
@@ -33,6 +31,12 @@ menuButton.setAttribute('aria-label', 'Menu');
 const navbarNav = document.querySelector('.navbar-nav');
 navbarNav.parentNode.insertBefore(menuButton, navbarNav);
 
+// Função para fechar o menu
+const closeMenu = () => {
+    navbarNav.classList.remove('active');
+    menuButton.classList.remove('active');
+};
+
 menuButton.addEventListener('click', () => {
     navbarNav.classList.toggle('active');
     menuButton.classList.toggle('active');
@@ -48,9 +52,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
-            // Fecha o menu mobile se estiver aberto
-            navbarNav.classList.remove('active');
-            menuButton.classList.remove('active');
+            closeMenu();
         }
     });
 });
@@ -83,14 +85,15 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
             
-            // Fecha todos os itens
-            faqItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
-            });
-            
-            // Se o item clicado não estava ativo, abre ele
             if (!isActive) {
+                // Fecha o item ativo anterior, se houver
+                const activeItem = document.querySelector('.faq-item.active');
+                if (activeItem) {
+                    activeItem.classList.remove('active');
+                }
                 item.classList.add('active');
+            } else {
+                item.classList.remove('active');
             }
         });
     });
@@ -107,6 +110,7 @@ function updateCopyrightYear() {
 // Atualizar o ano quando a página carregar
 document.addEventListener('DOMContentLoaded', () => {
     updateCopyrightYear();
+    
     // Voltar ao topo
     const backToTop = document.querySelector('.back-to-top');
     if (backToTop) {
@@ -119,8 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Validação customizada do formulário de contato
 function validateEmail(email) {
-    // Regex simples para validar email
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); //se nao tiver um @ ou . ou espaço no meio, retorna false basicamente. ass Gutavo Mendes da Rosa.
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Função para limpar erros
+function clearErrors(form) {
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+    form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -136,53 +145,33 @@ document.addEventListener('DOMContentLoaded', function() {
         form.parentNode.insertBefore(successMessage, form);
 
         form.addEventListener('submit', function(e) {
+            e.preventDefault();
             let valid = true;
-
-            // Limpa mensagens anteriores e feedback visual
-            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-            form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
+            clearErrors(form);
             successMessage.style.display = 'none';
 
-            // Nome
-            const name = document.getElementById('name');
-            if (!name.value.trim()) {
-                document.getElementById('error-name').textContent = 'Por favor, preencha seu nome.';
-                name.classList.add('error');
-                valid = false;
+            // Validação dos campos
+            const fields = {
+                name: 'Por favor, preencha seu nome.',
+                email: 'Por favor, preencha seu email.',
+                subject: 'Por favor, preencha o assunto.',
+                message: 'Por favor, escreva sua mensagem.'
+            };
+
+            for (const [id, errorMessage] of Object.entries(fields)) {
+                const field = document.getElementById(id);
+                if (!field.value.trim()) {
+                    document.getElementById(`error-${id}`).textContent = errorMessage;
+                    field.classList.add('error');
+                    valid = false;
+                } else if (id === 'email' && !validateEmail(field.value.trim())) {
+                    document.getElementById(`error-${id}`).textContent = 'Digite um email válido.';
+                    field.classList.add('error');
+                    valid = false;
+                }
             }
 
-            // Email
-            const email = document.getElementById('email');
-            if (!email.value.trim()) {
-                document.getElementById('error-email').textContent = 'Por favor, preencha seu email.';
-                email.classList.add('error');
-                valid = false;
-            } else if (!validateEmail(email.value.trim())) {
-                document.getElementById('error-email').textContent = 'Digite um email válido.';
-                email.classList.add('error');
-                valid = false;
-            }
-
-            // Assunto
-            const subject = document.getElementById('subject');
-            if (!subject.value.trim()) {
-                document.getElementById('error-subject').textContent = 'Por favor, preencha o assunto.';
-                subject.classList.add('error');
-                valid = false;
-            }
-
-            // Mensagem
-            const message = document.getElementById('message');
-            if (!message.value.trim()) {
-                document.getElementById('error-message').textContent = 'Por favor, escreva sua mensagem.';
-                message.classList.add('error');
-                valid = false;
-            }
-
-            if (!valid) {
-                e.preventDefault();
-            } else {
-                e.preventDefault();
+            if (valid) {
                 form.reset();
                 successMessage.textContent = 'Mensagem enviada com sucesso!';
                 successMessage.style.display = 'block';
