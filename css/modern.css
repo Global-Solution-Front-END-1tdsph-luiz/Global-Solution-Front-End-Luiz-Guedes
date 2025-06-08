@@ -1,4 +1,3 @@
-
 /* Variáveis CSS : */ /* Utilizei as variaveis para facilitar a manutenção e acesso aos elementos, também para facilitar a mudança de cores e estilos e padronizar uma cor secundaria e primaria ass: Gustavo mendes da rosa*/
 :root {
   --primary-color: #13547a;
@@ -20,7 +19,7 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   padding-top: 50px; /* Altura do navbar */
@@ -64,7 +63,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 600;
   color: var(--primary-color);
   text-decoration: none;
@@ -297,7 +296,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 600;
   color: var(--white);
   text-decoration: none;
