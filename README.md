@@ -39,7 +39,6 @@ Global-Solution-Front-End-Luiz-Guedes/
 
 #### Diretórios Principais
 - `assets/`: Contém recursos estáticos como fontes e ícones
-  - `fontawesome/`: Biblioteca de ícones localizada
 - `css/`: Arquivos de estilo
 - `images/`: Imagens do projeto
 - `js/`: Scripts JavaScript
@@ -69,7 +68,6 @@ Global-Solution-Front-End-Luiz-Guedes/
 - **HTML5** - Estruturação das páginas web.
 - **CSS3** - Estilização e design responsivo.
 - **JavaScript** - Funcionalidades interativas.
-- **Font Awesome** - Ícones e elementos visuais
 - **GitHub** - Versionamento e hospedagem do código.
 
 ---
